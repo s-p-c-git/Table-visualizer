@@ -35,7 +35,7 @@ def generate_visualization_code(prompt):
 def main():
     #page setup 
     st.set_page_config(page_title="Table visualization", layout="wide")
-    st.title("Table visualization")
+    st.title("Table visualizer with OpenAI")
     file=st.file_uploader("Kindly upload CSV file of the data you want to visualize", type='csv')
     if file is not None:
         file_csv=pd.read_csv(file)
@@ -49,7 +49,7 @@ def main():
         1) Generate a python code to visualize the dataframe.
         2) Consider all necessary libraries and dataframe is imported, just generate only visualization code.
         3)The visualization plot should reveal exact information and relation between columns and rows.
-        4)Output should only have code for 2 suitable plots and it should be readymade to deploy in streamlit app without any indentation errors and in below format
+        4)Output should only have code for 5 suitable plots and it should be readymade to deploy in streamlit app without any indentation errors and in below format
         5) Plot graphs between categorical vs numerical column or numerical vs numerical only. 
         output code format:
         st.subheader(Subplot name)
