@@ -64,7 +64,7 @@ def main():
 
 
         dataframe:
-        ```{df[0:25]}```
+        ```{df}```
         """
         executable_visualization_code=generate_visualization_code(prompt) #returns code in a string format.
            
