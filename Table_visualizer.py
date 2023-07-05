@@ -13,21 +13,22 @@ import seaborn as sns
 import os
 
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+openai.api_key = st.secrets["OPENAI_API_KEY"]  #API key stored in secrets of Streamlit app as environment variable.
 
 
+# This function will generate the code, which in turn used to display graphs from the given data.
 def generate_visualization_code(prompt):
     # Use OpenAI's API to generate Python code for visualization
     response = openai.Completion.create(
-        engine='text-davinci-003',
+        engine='text-davinci-003', 
         prompt=prompt,
-        temperature=0.75,
-        max_tokens=500,
+        temperature=0.75, #0.75 gives pretty much consistent values.
+        max_tokens=500,   #restricting max tokens to 500.
         n=1,
         stop=None
     )
 
-    # Extract the generated code from OpenAI's response
+    # Fetch the generated code from OpenAI's response
     visualization_code = response.choices[0].text.strip()
 
     return visualization_code
@@ -36,14 +37,15 @@ def main():
     #page setup 
     st.set_page_config(page_title="Table visualization", layout="wide")
     st.title("Table visualizer with OpenAI")
-    file=st.file_uploader("Kindly upload CSV file of the data you want to visualize", type='csv')
+    file=st.file_uploader("Kindly upload CSV file of the data you want to visualize", type='csv') #For now App will take files in the csv format.
     if file is not None:
         file_csv=pd.read_csv(file)
-        df=file_csv.sample(n=30)
+        df=file_csv.sample(n=30) # To avoid exhaustion of token size, I'm restricting the model input to 30 rows (which will be of less tokens).
         # Display the uploaded DataFrame
-        st.subheader("Uploaded DataFrame")
+        st.subheader("Data to be visualized")
         st.write(df)
-        
+
+        #prompt will fetch the code needed to display 5 charts/graphs for the given Dataset. We have instructed to return in particular format.
         prompt=f"""
         Perform the following actions:
         1) Generate a python code to visualize the dataframe.
@@ -64,9 +66,9 @@ def main():
         dataframe:
         ```{df[0:25]}```
         """
-        executable_visualization_code=generate_visualization_code(prompt)
+        executable_visualization_code=generate_visualization_code(prompt) #returns code in a string format.
            
-        list_of_codes=executable_visualization_code.splitlines()
+        list_of_codes=executable_visualization_code.splitlines() #splitting each line and executing it to display grphs.
         for code in list_of_codes:
               exec(code)
     
