@@ -10,9 +10,10 @@ import streamlit as st
 import openai
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 
-openai.api_key = "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"
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 
 def generate_visualization_code(prompt):
