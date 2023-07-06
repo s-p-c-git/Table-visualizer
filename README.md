@@ -73,12 +73,25 @@ executable_visualization_code=generate_visualization_code(prompt)
 
 ## 2) Preview of uploaded Table.
 
-![image](https://github.com/Mogith-P-N/Table-visualizer/assets/113936190/2f5c982c-8a1b-4d85-84f6-a7a3638abf88)
+![graphs](https://github.com/Mogith-P-N/Table-visualizer/assets/113936190/7951863f-4dba-4b01-a023-d53426873153)
 
-## 3) Sample Graph/chart.
 
-![image](https://github.com/Mogith-P-N/Table-visualizer/assets/113936190/542ad42e-bcdb-4f7d-9a18-60f93461e2e6)
+## 3) Sample Graphs/charts.
 
+![image](https://github.com/Mogith-P-N/Table-visualizer/assets/113936190/a1b9c56e-53a2-4ecd-84b3-2fcbb720d472)
+
+![image](https://github.com/Mogith-P-N/Table-visualizer/assets/113936190/723da5bf-c236-489f-8821-07be619555d4)
+
+
+# Limitations :
+
+1) The model is limited to input token of 4096, so the code is written in a way it will slice the table and randomly picks 30 rows for the analysis. But the more the data, more the visualization will be appealing and model can actually produce great results with higher amount of data.
+
+2) Input file format - For the timebeing now the file user can be upload for the analysis should be csv.
+
+3) Visualization output - I have now prompted the model to produce maximum of 5 graphs for display. This is again due to the output token constraint of the openAI API.
+
+4) Model response inconsistencies - The executable code generated from the model might have "TypeError", "IndentationError", "SyntaxError", this is due to we are executing the string file and even though we defined a particular structure, still model tends to throw some randomness and that results in incomplete output or error ( Mostly refreshing the page or trying again will work).
 
 
 
