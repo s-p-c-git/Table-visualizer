@@ -1,5 +1,6 @@
 # Table-visualizer 📑
 Streamlit app to visualize charts/graphs from the given Table
+## Web-app URL : _https://table-visualizer-with-openai.streamlit.app/_
 # Goal 🥅
 ## Deploy a streamlit app with OpenAI integration to visualize tables.
 ### For this task we will be integrating OpenAI API with streamlit app.
