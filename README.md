@@ -138,4 +138,10 @@ df=file_csv.sample(n=30)
 
 ## Future ideas 💡 :
 
+--> To change user interface to much more compact and not restricted to one file type, instead user can upload any type of files and it will process in the backend and convert it to dataframe accordingly. 
+
+--> Integrating the table and prompt the model to generate inferences based on the data distribution and patterns in data.
+
+
+
 
