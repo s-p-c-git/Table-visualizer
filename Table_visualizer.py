@@ -68,12 +68,15 @@ def main():
         """
         executable_visualization_code=generate_visualization_code(prompt) #returns code in a string format.
            
-        list_of_codes=executable_visualization_code.splitlines() #splitting each line and executing it to display grphs.
-        try :
-            exec('\n'.join(list_of_codes))
+        list_of_codes=executable_visualization_code.splitlines() #splitting each line and executing it to display graphs.
+
+        for code in list_of_codes:
+            try :
+                exec('\n'.join(code))
+            except (SyntaxError, IndentationError):
+                pass
             
-        except (SyntaxError, IndentationError):
-            pass
+        
     
 
 
