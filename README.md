@@ -13,6 +13,13 @@ Streamlit app to visualize charts/graphs from the given Table
 <br> seaborn </br>
 <br> Matplotlib </br>
 
+## Code files 
+.
+├── LICENSE
+├── README.md
+├── Table_visualizer.py
+└── requirements.txt
+## 
 ```
 docker run hello-world
 ```
