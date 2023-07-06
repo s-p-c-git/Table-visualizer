@@ -23,7 +23,7 @@ def generate_visualization_code(prompt):
         engine='text-davinci-003', 
         prompt=prompt,
         temperature=0.75, #0.75 gives pretty much consistent values.
-        max_tokens=600,   #restricting max tokens to 600.
+        max_tokens=1000,   #restricting max tokens to 600.
         n=1,
         stop=None
     )
