@@ -52,12 +52,12 @@ def main():
         2) Consider all necessary libraries and dataframe is imported, just generate only visualization code.
         3)The visualization plot should reveal exact information and relation between columns and rows.
         4)Output should only have code for 5 suitable plots and it should be readymade to deploy in streamlit app without any indentation errors and in below format
-        5) Plot graphs only between categorical vs numerical column or numerical vs numerical. 
+        5) Plot graphs between categorical vs numerical column or numerical vs numerical. 
         output code format:
         st.subheader(Subplot name)
         fig(plot number), axis(plot number)=plt.subplots()
         sns.(suitable plot)(data=df,x=(suitable row),y=(suitable column),hue=(suitable column))
-        plt.xticks(rotation=20,fontweight='light',fontsize='small')
+        plt.xticks(rotation=20,fontweight='light',fontsize=5)
         axis_no.set_xlabel(suitable x axis name)
         axis_no.set_ylabel(suitable y axis name)
         st.pyplot(fig(plot number))
@@ -72,9 +72,9 @@ def main():
 
         for code in list_of_codes:
             try :
-                exec('\n'.join(code))
+                exec(code)
             except (SyntaxError, IndentationError):
-                pass
+                continue
             
         
     
