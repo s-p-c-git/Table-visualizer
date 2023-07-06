@@ -36,7 +36,10 @@ the data, convert it to dataframe and creates a code to display graphs/charts ba
 
 ### Assumptions :
 
-The user will uploads a data file (preferrably csv for this task) in the streamlit user interface, and the openAI model will slice it upto 30 rows and creates a dataframe out of it and feed it to our prompt, which will analyse and generate a visualization code to display graphs/charts. 
+1) The user will uploads a data file (preferrably csv for this task) in the streamlit user interface. file_size < 10 MB
+2) OpenAI model will slice it upto 30 rows and creates a dataframe out of it.
+3) Dataframe is then feeded to the prompt.
+4) Prompt instructs the model to generate code that can be used to display graphs for given data. 
 
 
 ## Code workflow 🧮
