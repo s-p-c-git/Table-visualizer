@@ -13,15 +13,6 @@ Streamlit app to visualize charts/graphs from the given Table
 <br> seaborn </br>
 <br> Matplotlib </br>
 
-
-
-Install Docker Desktop from here  - https://docs.docker.com/desktop/. 
-Choose the distribution of your choice but we will be using Windows.
-Docker compose, the CLI tools come along with Docker Desktop.
-
-Download the starter file from here - (https://github.com/sb2nov/corise-zignite-devops-cc)
-
-Test if Docker is installed by running the following command in the terminal 
 ```
 docker run hello-world
 ```
