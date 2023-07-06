@@ -13,25 +13,58 @@ Streamlit app to visualize charts/graphs from the given Table
 <br> seaborn </br>
 <br> Matplotlib </br>
 
-## Code files 
-.
-├── LICENSE
-├── README.md
-├── Table_visualizer.py
-└── requirements.txt
-## 
-```
-docker run hello-world
-```
-If everything is installed right you get a response 'Hello from Docker! We are all good to go, let's start off our Week 2 project then!
+##File structure
 
-# Steps
-Download or Clone the repo https://github.com/sb2nov/corise-zignite-devops-cc/tree/starter_code
+Table-visualizer/
+├─ LICENSE
+├─ Table_visualizer.py
+├─ README.md
+├─ requirements.txt
 
-Create a Docker File within the cloned Repository
+### LICENSE - Apache2.0
+### Table_visualizer.py - Main application code.
+### requirements.txt - Requirements file which has all the dependencies.
+
+
+## Project approach :
+
+The Table_visualizer.py code is developed in a way that, once user uploads the .csv file in the streamlit front-end page, it will analyse
+the data, convert it to dataframe and creates a code to display graphs/charts based on the data. Since our objective to integrate the OpenAI and most of the models works well with text generation and text completion. We leverage it to generate code for our case and execute it to display visualization.
+
+
+## Code workflow :
+
+**generate_visualization_code** function will take our prompt as input and generates the required code in the format, we specified.
+Model _'text-davinci-003'_ is used with _temperature_ value of 0.75 and _max_tokens=1000_. In our case mostly tokens will be in the range of 500-600, Since I
+have restricted the input dataframe size upto 30 rows to avoid exceeding model token limit (and of course free-trial limit...)
 ```
-vim Dockerfile
+def generate_visualization_code(prompt):
+    # Use OpenAI's API to generate Python code for visualization
+    response = openai.Completion.create(
+        engine='text-davinci-003', 
+        prompt=prompt,
+        temperature=0.75, #0.75 gives pretty much consistent values.
+        max_tokens=1000,   #restricting max tokens to 600.
+        n=1,
+        stop=None
+    )
 ```
+The **main()** function has the attributes that constructs streamlit frontend and displays the dataset. It stores the output from OpenAI response as string in 
+**executable_visualization_code** variable. To execute the code, we are splitting as list of lines and iterating over a for loop to apply exec() function. 
+The below code will try execute each lines and ignores any exception errors mentioned below.
+
+```
+executable_visualization_code=generate_visualization_code(prompt)
+
+        list_of_codes=executable_visualization_code.splitlines()
+         for code in list_of_codes:
+            try :
+                exec(code)
+            except (SyntaxError, ValueError, IndentationError):
+                continue 
+```
+## Note: The error part is inevitable with the "text-davinci-model" as even though it is powerfull model, it drift away sometimes and send codes with indentation and type errors.
+
 
 The Python application directory structure should now look like the following:
 ```
