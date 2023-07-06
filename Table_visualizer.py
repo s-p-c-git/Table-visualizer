@@ -73,7 +73,7 @@ def main():
         for code in list_of_codes:
             try :
                 exec(code)
-            except (SyntaxError):
+            except (SyntaxError, ValueError, IndentationError):
                 continue
             
         
