@@ -74,7 +74,6 @@ def main():
             try :
                 exec(code)
             except (SyntaxError):
-                raise
                 continue
             
         
