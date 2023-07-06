@@ -1,15 +1,19 @@
 # Table-visualizer
 Streamlit app to visualize charts/graphs from the given Table
 # Goal
-## Containerize two Flask web services and use Docker Compose to orchestrate them
-### For our week 2 project, we will be containerizing two Flask apps, one generates a Random Quote, and the other service consumes this and displays it on a neat front end.
-### Then we shall be using Docker Swarm to orchestrate the services to achieve our end goal. This exercise will help us understand a real-world use case of Docker and Docker Swarm better.
+## Deploy a streamlit app with OpenAI integration to visualize tables.
+### For this task we will be integrating OpenAI API with streamlit app.
+### Then with out prompt we'll generate visualization of table data uploaded by the users.
 
-## Prerequisites
-<br> Basic knowledge of programming and APIs is needed. </br>
-<br> The tutorial on how to start a Docker Container is here - https://docs.docker.com/language/python/build-images/ </br>
+## Environment Setup - Things needed to run Project 
+<br> Python </br>
+<br> OpenAI </br>
+<br> Pandas </br>
+<br> streamlit </br>
+<br> seaborn </br>
+<br> Matplotlib </br>
 
-## Environment Setup - Things needed to run Project 2 
+
 
 Install Docker Desktop from here  - https://docs.docker.com/desktop/. 
 Choose the distribution of your choice but we will be using Windows.
