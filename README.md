@@ -13,13 +13,14 @@ Streamlit app to visualize charts/graphs from the given Table
 <br> seaborn </br>
 <br> Matplotlib </br>
 
-##File structure
-
+## File structure
+```
 Table-visualizer/
 ├─ LICENSE
 ├─ Table_visualizer.py
 ├─ README.md
 ├─ requirements.txt
+```
 
 ### LICENSE - Apache2.0
 ### Table_visualizer.py - Main application code.
